@@ -1,0 +1,32 @@
+{% extends 'Patient templates/Patient_view.html' %}
+{% block content %}
+
+<form method ='POST'>
+     {% csrf_token %}
+<table class="table">
+    <thead>
+
+    <tr>
+        <th scope="col">Dr Name</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{data.Doctor_Name}}</td>
+         <td>{{data.Date}}</td>
+         <td>{{data.Time}}</td>
+
+
+      <td><button type="submit" class="btn">BOOk NOW</button></td>
+
+    </tr>
+
+    </tbody>
+</table>
+   </form>
+
+{% endblock %}

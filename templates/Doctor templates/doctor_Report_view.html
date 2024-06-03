@@ -1,0 +1,25 @@
+{% extends 'Doctor templates/Doctor_view.html' %}
+{% block content %}
+
+<table class="table table-striped table-hove" style="height:50px">
+    <thead>
+    <tr>
+        <th scope="col">Patient Name</th>
+        <th scope="col">Prescription</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+    <tr>
+        <td>{{i.patient_name}}</td>
+        <td>{{i.Reports}}</td>
+        <td>     <a href="{{ i.Reports.url }}" download  class="btn btn-dark float-right">Download</a>
+</td>
+
+         </tr>
+    {% endfor %}
+        </tbody>
+</table>
+
+{% endblock %}

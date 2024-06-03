@@ -1,0 +1,25 @@
+{% extends 'Nurse templates/Nusre _page.html' %}
+{% block content %}
+
+<table class="table table-striped table-hove" style="height:50px">
+    <thead>
+    <tr>
+        <th scope="col">Notification</th>
+
+
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in data%}
+    <tr>
+        <td>{{i.notification}}</td>
+
+
+
+         </tr>
+    {% endfor %}
+        </tbody>
+</table>
+
+{% endblock %}

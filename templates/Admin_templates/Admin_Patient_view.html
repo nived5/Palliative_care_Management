@@ -1,0 +1,32 @@
+{% extends 'Admin_templates/Admin_page.html' %}
+{% block content %}
+<h2>Patient view</h2>
+<table class="table table-striped table-hove" style="height:50px">
+    <thead>
+    <tr>
+<!--        <th scope="col">User</th>-->
+        <th scope="col">User Name</th>
+        <th scope="col">Name</th>
+        <th scope="col">Contact No</th>
+        <th scope="col">Email</th>
+         <th scope="col">Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in data1 %}
+
+    <tr>
+
+        <td>{{i.user}}</td>
+        <td>{{i.Name}}</td>
+        <td>{{i.Contact_no}}</td>
+        <td>{{i.Email}}</td>
+        <td>{{i.Address}}</td>
+
+</tr>
+    {% endfor %}
+
+
+    </tbody>
+</table>
+{% endblock %}

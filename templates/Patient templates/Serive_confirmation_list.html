@@ -1,0 +1,46 @@
+
+{% extends 'Patient templates/Patient_view.html' %}
+{% block content %}
+ <form method ='POST'>
+     {% csrf_token %}
+<table class="table table-striped table-hove" style="height:50px">
+    <thead>
+
+    <tr>
+
+
+        <th scope="col">Services</th>
+         <th scope="col">Details</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Status</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+
+    <tr>
+        <td>{{i.request_service.service}}</td>
+        <td>{{i.request_service.Details}}</td>
+        <td>{{i.request_service.Date}}</td>
+        <td>{{i.request_service.Time}}</td>
+
+
+      <td>
+          {% if i.status == 0 %}
+          <h3>Pending</h3>
+          {% elif i.status == 1 %}
+          <h3>Accepted</h3>
+          {% else %}
+          <h3>Rejected</h3>
+      </td>
+
+    </tr>
+    {% endif %}
+   {% endfor %}
+
+    </tbody>
+</table>
+   </form>
+{% endblock %}

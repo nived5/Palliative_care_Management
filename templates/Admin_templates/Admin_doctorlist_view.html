@@ -1,0 +1,36 @@
+{% extends 'Admin_templates/Admin_page.html' %}
+{% block content %}
+<h2>Doctor view</h2>
+<table class="table table-striped table-hove" style="height:50px">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Name</th>
+      <th scope="col">Contact_no</th>
+      <th scope="col">Email</th>
+      <th scope="col">Specialised</th>
+      <th scope="col">Delete</th>
+
+<!--        <th scope="col">Feedback</th>-->
+
+    </tr>
+  </thead>
+    <tbody>
+    {% for i in data  %}
+    <tr>
+      <td>{{i.user}}</td>
+      <td>{{i.Name}}</td>
+      <td>{{i.Contact_no}}</td>
+      <td>{{i.Email}}</td>
+      <td>{{i.specialisation}}</td>
+
+       <form action= "{% url 'delete_doctor' i.id %}" method="POST">
+          {% csrf_token %}
+      <td><button type="submit" class="btn">delete</button></td>
+                </form>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+  {% endblock %}

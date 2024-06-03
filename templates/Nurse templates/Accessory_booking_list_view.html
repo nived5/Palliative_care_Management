@@ -1,0 +1,33 @@
+{% extends 'Nurse templates/Nusre _page.html' %}
+{% block content %}
+<table class="table table-striped table-hove" style="height:50px">
+  <thead>
+    <tr>
+      <th scope="col">PATIENT NAME</th>
+      <th scope="col">EQUIPMENT LIST</th>
+      <th scope="col">STATUS</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in  data %}
+  <tr>
+  <td>{{i.user}}</td>
+    <td>{{i.request.Equipments}}</td>
+
+    <td>
+      {% if i.status == 0 %}
+      <a href ="{% url 'status_change_1' i.id %}" type="submit" class="btn-btn">Accept</a>
+       <a href ="{% url 'status_change_2' i.id %}" type="submit" class="btn-btn">Reject</a>
+      {% elif i.status == 1 %}
+      <a href="{% url 'status_change_1' i.id %}" type="submit" class="btn-btn">Accepted</a>
+     {% else %}
+      <a href="{% url 'status_change_2' i.id %}" type="submit" class="btn-btn">Rejected</a>
+    </td>
+  </tr>
+{% endif %}
+{% endfor %}
+  </tbody>
+  </table>
+{% endblock %}

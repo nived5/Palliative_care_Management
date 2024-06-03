@@ -1,0 +1,23 @@
+{% extends 'Doctor templates/Doctor_view.html' %}
+{% block content %}
+
+<table class="table table-striped table-hove" style="height:50px">
+    <thead>
+    <tr>
+        <th scope="col">Patient Name</th>
+        <th scope="col">Prescription</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+    <tr>
+        <td>{{i.user}}</td>
+        <td>{{i.prescription}}</td>
+
+         </tr>
+    {% endfor %}
+        </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'Pharmacist templates/Pharmacist_view.html' %}
+{% block content %}
+
+
+<form method="get">
+<!--    {{filter.form.as_p}}-->
+    <input placeholder="enter patient name"> </input>
+    <a href="{% url 'prescription_search' %}">
+    <button type="submit" >Search</button></a>
+</form>
+<ul>
+    {% for user in filter.qs %}
+    <li>{{user.user}}</li>
+    <li>{{user.prescription}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

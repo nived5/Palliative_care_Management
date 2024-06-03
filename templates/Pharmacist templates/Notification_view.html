@@ -1,0 +1,17 @@
+{% extends 'Pharmacist templates/Pharmacist_view.html' %}
+{% block content %}
+<table class="table" style="height:50px;">
+  <thead class="table-dark">
+    <tr>
+        <th scope="col">Notification</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+    <tr>
+        <td>{{i.notification}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'Admin_templates/Admin_page.html' %}
+{% block content %}
+
+<table class="table table-striped table-hove" style="height:50px">
+
+    <tr>
+        <th scope="col">Notification</th>
+        <th scope="col">Delete</th>
+    </tr>
+    <tbody>
+    {% for i in data %}
+    <tr>
+        <td>{{i.notification}}</td>
+
+        <form action= "{% url 'delete_accessory' i.id %}" method="POST">
+          {% csrf_token %}
+      <td><button type="submit" class="btn">Delete</button></td>
+                </form>
+
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+{% endblock %}

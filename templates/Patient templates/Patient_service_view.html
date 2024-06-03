@@ -1,0 +1,32 @@
+{% extends 'Patient templates/Patient_view.html' %}
+{% block content %}
+
+<table class="table table-striped table-hove" style="height:50px">
+    <thead>
+    <tr>
+        <th scope="col">Service</th>
+        <th scope="col">Details</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+    <tr>
+        <td>{{i.service}}</td>
+        <td>{{i.Details}}</td>
+        <td>{{i.Date}}</td>
+        <td>{{i.Time}}</td>
+        <td><a href="{% url 'Request_for_services' i.id %}">
+                Book Now
+            </a></td>
+
+</td>
+
+         </tr>
+    {% endfor %}
+        </tbody>
+</table>
+
+{% endblock %}

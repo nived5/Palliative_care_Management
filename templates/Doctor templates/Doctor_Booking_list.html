@@ -1,0 +1,35 @@
+{% extends 'Doctor templates/Doctor_view.html' %}
+{% block content %}
+<table class="table table-striped table-hove" style="height:50px">
+  <thead>
+    <tr>
+      <th scope="col">Patient Name</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">STATUS</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in  data %}
+  <tr>
+    <td>{{i.user}}</td>
+    <td>{{i.schedule.Date}}</td>
+    <td>{{i.schedule.Time}}</td>
+
+    <td>
+      {% if i.status == 0 %}
+      <a href ="{% url 'status_change_1' i.id %}" type="submit" class="btn-btn">Accept</a>
+       <a href ="{% url 'status_change_1' i.id %}" type="submit" class="btn-btn">Reject</a>
+      {% elif i.status == 1 %}
+      <a href="{% url 'status_change_2' i.id %}" type="submit" class="btn-btn">Accept</a>
+     {% else %}
+      <a href="{% url 'status_change_2' i.id %}" type="submit" class="btn-btn">Reject</a>
+    </td>
+  </tr>
+{% endif %}
+{% endfor %}
+  </tbody>
+  </table>
+{% endblock %}

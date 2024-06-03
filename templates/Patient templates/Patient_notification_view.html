@@ -1,0 +1,25 @@
+{% extends 'Patient templates/Patient_view.html' %}
+{% block content %}
+
+<table class="table table-striped table-hove" style="height:50px">
+    <thead>
+    <tr>
+        <th scope="col">Notification</th>
+
+
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in data%}
+    <tr>
+        <td>{{i.notification}}</td>
+
+
+
+         </tr>
+    {% endfor %}
+        </tbody>
+</table>
+
+{% endblock %}
